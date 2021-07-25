@@ -25,10 +25,10 @@ const Sections = {
           </pre>
           <p>If you use framework such as Meteor you can use</p>
           <pre class="js rounded">
-            {`// For initial. 
-import "@r.phuwanat/minbootstap/js/minBootstrap"; 
-//We have extract some utility function. 
-import { MinB } from "@r.phuwanat/minbootstap/js/minBootstrapBundle"; 
+            {`// For initial.
+import "@r.phuwanat/minbootstap/js/minBootstrap";
+//We have extract some utility function.
+import { MinB } from "@r.phuwanat/minbootstap/js/minBootstrapBundle";
 // The require('@r.phuwanat/minbootstap') is not available yet.`}
           </pre>
         </div>
@@ -201,7 +201,84 @@ import { MinB } from "@r.phuwanat/minbootstap/js/minBootstrapBundle";
         </pre>
       </div>
     );
-  }
+  },
+  layout: function Layout() {
+    return (
+      <div class="content">
+        <h2 id="layout">Row</h2>
+        <p>
+          {`Use row for trigger flex style then use col as child for grid system col-{1-12} for sizing`}
+          <br />
+          {`If col-{number} summary with other in parent row are over 12 it will move to next line.`}{" "}
+          <br />
+          Element in row will have 100% width if not sizing or wrap with col;{" "}
+          <br />
+          {`col-{breakpoint}-{1-2} for specify when will stop flexing available at sm , m ,l ,xl ,xxl`}
+          <br />
+        </p>
+        <div class="row ">
+          <div class="col col-test bd-gray">col</div>
+          <div class="col col-test bd-gray">col</div>
+          <div class="col col-test bd-gray">col</div>
+        </div>
+        <pre class="html rounded mb-5">
+          {`<div class="row">
+  <div class="col">col</div>
+  <div class="col">col</div>
+  <div class="col">col</div>
+</div>
+`}
+        </pre>
+        <h2>Flex</h2>
+        <p>
+          If you just need inline display use flex instead and still can use col
+          for sizing
+        </p>
+        <h2>Vertical align</h2>
+        <div class="row  align-items-center bg-light" style={{height: "200px"}}>
+          <div class="col bg-white col-test bd-gray">col</div>
+          <div class="col bg-white col-test bd-gray">col</div>
+          <div class="col bg-white col-test bd-gray">col</div>
+        </div>
+        <pre class="html rounded mb-5">
+          {`<div class="row align-items-center">
+  <div class="col"> col </div>
+  <div class="col"> col </div>
+  <div class="col"> col </div>
+</div>`}
+        </pre>
+        <h2>Horizontal align</h2>
+        <p>
+          {`Use justify-content-{position} on row`}
+          <br />
+          Available position: start, center, end, around, even and between.
+        </p>
+        <div class="bg-light p-1" style={{width: "100%"}}>
+          <div class="row  pb-1 justify-content-center">
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+          </div>
+          <div class="row  pb-1 justify-content-start">
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+          </div>
+          <div class="row  justify-content-end">
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+            <div class="col-3 bg-white col-test bd-gray">col-3</div>
+          </div>
+        </div>
+        <pre class="html rounded mb-5">
+          {`<div class="row justify-content-center">
+  <div class="col-3"> col </div>
+  <div class="col-3"> col </div>
+  <div class="col-3"> col </div>
+</div>`}
+        </pre>
+      </div>
+    );
+  },
 };
-
 export default Sections;
