@@ -1,6 +1,7 @@
 {
   "name": "minimalbootstrap-react",
   "version": "0.1.0",
+  "homepage": "https://pwnrrk.github.io/minimalbootstrap",
   "private": true,
   "dependencies": {
     "@r.phuwanat/minbootstrap": "^1.8.7",
