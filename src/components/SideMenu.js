@@ -1,5 +1,23 @@
 import { Link } from "react-router-dom";
 
+function sideMenuToggle() {
+  document.querySelectorAll('.side-menu').forEach(e => {
+      e.classList.contains('showing') ? e.classList.remove('showing') : e.classList.add('showing')
+  })
+}
+document.querySelectorAll('.side-menu-toggler,.side-menu-bg,.side-menu-link').forEach(e => {
+  e.addEventListener('click', sideMenuToggle)
+})
+document.querySelectorAll('.side-menu-link').forEach(e => {
+  e.addEventListener('click', () => {
+      if (window.innerWidth < 540) {
+          document.querySelectorAll('.navbar-toggler').forEach(es => {
+              es.click()
+          })
+      }
+  })
+})
+
 export default function SideMenu() {
   return (
     <div className="side-menu">

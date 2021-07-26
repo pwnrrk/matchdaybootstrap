@@ -1,3 +1,12 @@
+function testValid(ev) {
+  if (ev.target.value == "Hello") {
+      ev.target.classList.remove('invalid')
+      ev.target.classList.add('valid')
+  } else {
+      ev.target.classList.remove('valid')
+      ev.target.classList.add('invalid')
+  }
+}
 const Sections = {
   installation: () => (
     <div class="content">
@@ -350,8 +359,8 @@ import { MinB } from "@r.phuwanat/minbootstap/js/minBootstrapBundle";
         <div class="bg-secondary bg-test m-1 text-light">m-1</div>
       </div>
       <pre class="html rounded mb-5">
-        {`&lt;div class="m-3">&lt;/div&gt;
-&lt;div class="mt-3">&lt;/div&gt;`}
+        {`<div class="m-3"></div>
+<div class="mt-3"></div>`}
       </pre>
     </div>
   ),
@@ -373,8 +382,8 @@ import { MinB } from "@r.phuwanat/minbootstap/js/minBootstrapBundle";
       </div>
 
       <pre class="html rounded mb-5">
-        {`&lt;div class="p-3">&lt;/div&gt;
-&lt;div class="pr-3">&lt;/div&gt;`}
+        {`<div class="p-3"></div>
+<div class="pr-3"></div>`}
       </pre>
     </div>
   ),
@@ -400,9 +409,9 @@ import { MinB } from "@r.phuwanat/minbootstap/js/minBootstrapBundle";
       </div>
 
       <pre class="html rounded mb-5">
-        {`&lt;div class="rounded">&lt;/div&gt;
-&lt;div class="rounded-tr">&lt;/div&gt;
-&lt;div class="rounded-bl">&lt;/div&gt;`}
+        {`<div class="rounded"></div>
+<div class="rounded-tr"></div>
+<div class="rounded-bl"></div>`}
       </pre>
       <h2>Border Color</h2>
       <p>{`Use bd-{color}`}</p>
@@ -413,9 +422,9 @@ import { MinB } from "@r.phuwanat/minbootstap/js/minBootstrapBundle";
       </div>
 
       <pre class="html rounded mb-5">
-        {`&lt;div class="bd-primary">&lt;/div&gt;
-&lt;div class="bd-danger">&lt;/div&gt;
-&lt;div class="bd-warning">&lt;/div&gt;`}
+        {`<div class="bd-primary"></div>
+<div class="bd-danger"></div>
+<div class="bd-warning"></div>`}
       </pre>
       <h2>Border width</h2>
       <p>{`Use bd-{width}`}</p>
@@ -426,10 +435,592 @@ import { MinB } from "@r.phuwanat/minbootstap/js/minBootstrapBundle";
       </div>
 
       <pre class="html rounded mb-5">
-        {`&lt;div class="bd-1">&lt;/div&gt;
-&lt;div class="bd-2">&lt;/div&gt;
-&lt;div class="bd-3">&lt;/div&gt;`}
+        {`<div class="bd-1"></div>
+<div class="bd-2"></div>
+<div class="bd-3"></div>`}
       </pre>
+    </div>
+  ),
+  shadow: () => (
+    <div class="content">
+      <h2 id="shadow">Shadow</h2>
+      <p>{`Use shadow or shadow-{size}`}</p>
+      <div class="row justify-content-center">
+        <div class="bg-test bg-white shadow-sm rounded m-1">shadow-sm</div>
+        <div class="bg-test bg-white shadow rounded m-1">shadow</div>
+        <div class="bg-test bg-white shadow-lg rounded m-1">shadow-lg</div>
+      </div>
+      <pre class="html rounded">
+        {`<div class="bg-test bg-white shadow-sm rounded m-1">shadow-sm</div>
+<div class="bg-test bg-white shadow rounded m-1">shadow</div>
+<div class="bg-test bg-white shadow-lg rounded m-1">shadow-lg</div>
+`}
+      </pre>
+    </div>
+  ),
+  container: () => (
+    <div class="content">
+      <h2 id="container">Container</h2>
+      <p>
+        Container are using for limit width at 1024px and add little space
+        between container and child element.
+        <br />
+        {`You can use container-fulid that will have 100% width.`} <br />
+      </p>
+      <div class="shadow container">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
+          pariatur cumque? Iste doloribus iusto minima dolore, labore nihil
+          placeat corporis earum delectus repellendus rerum sequi consequatur
+          asperiores neque, officia blanditiis.
+        </p>
+      </div>
+      <pre class="html rounded mb-5">
+        {`<div class="container"></div>`}
+      </pre>
+    </div>
+  ),
+  button: () => (
+    <div class="content">
+      <h2 id="button">Button</h2>
+      <p>
+        {`Use btn to trigger button style and use btn-{color} for coloring. `}
+        <br />
+        {`Use btn-outline-{color} for outline color style. `}
+        <br />
+        {`Use btn-{sm,lg} for sizing.`}
+        <br />
+        btn can use with what ever element up to purposes. <br />
+      </p>
+      <div class="flex justify-content-center align-items-center">
+        <button class="btn btn-sm btn-primary m-1">btn-sm</button>
+        <button class="btn btn-primary m-1">btn-primary</button>
+        <button class="btn btn-lg btn-primary m-1">btn-lg</button>
+        <button class="btn btn-primary m-1" disabled>
+          btn-primary disabled
+        </button>
+        <button class="btn btn-secondary m-1">btn-secondary</button>
+        <button class="btn btn-primary-outline m-1">btn-primary-outline</button>
+        <button class="btn btn-secondary-outline m-1">
+          btn-secondary-outline
+        </button>
+      </div>
+      <pre class="html rounded mb-5">
+        {`<button class="btn btn-primary"> Text </button>`}
+      </pre>
+    </div>
+  ),
+  form: () => (
+    <div class="content">
+      <h2 id="form">Form</h2>
+      <p>
+        Cover form item with form-group will add space at top and bottom
+        checkbox and radio will display inline when in it.
+        <br />
+      </p>
+      <div class="container">
+        <form action="" method="GET" class="form">
+          <h3>Input</h3>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-item"
+              name="text1"
+              id="text1"
+              placeholder="form-item"
+            />
+          </div>
+          <pre class="html rounded mb-5">
+            {`<input type="text" class="form-item" id="text1" placeholder="form-item">`}
+          </pre>
+          <h3>Input with label</h3>
+          <div class="form-group">
+            <label for="" class="form-item-label">
+              Label
+            </label>
+            <input
+              type="text"
+              class="form-item"
+              id="text5"
+              name="text5"
+              placeholder="form-item"
+            />
+          </div>
+          <pre class="html rounded mb-5">
+            {`<div class="form-group">
+  <label for="" class="form-item-label"> Label <label>
+  <input type="text" class="form-item" id="text1" placeholder="form-item">
+</div>`}
+          </pre>
+          <h3>Select</h3>
+          <div class="form-group">
+            <select name="select" id="" class="form-select">
+              <option selected>Open this select menu</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+          </div>
+          <pre class="html rounded mb-5">
+            {`<select name="" id="" class="form-select">
+  <option selected>Open this select menu</option>
+  <option value="">Option 1</option>
+  <option value="">Option 2</option>
+  <option value="">Option 3</option>
+</select>
+`}
+          </pre>
+          <h3>Checkbox</h3>
+          <div class="form-group">
+            <span class="form-check">
+              <input type="checkbox" name="check1" id="" /> Check box
+            </span>
+            <span class="form-check disabled">
+              <input type="checkbox" name="check2" id="" /> Check box disabled
+            </span>
+          </div>
+          <pre class="html rounded mb-5">
+            {`<span class="form-check"><input type="checkbox" name="" id=""> Check box</span>`}
+          </pre>
+          <h3>Radio</h3>
+          <div class="form-group">
+            <span class="form-radio">
+              <input type="radio" name="radio" id="" />
+              Radio 1
+            </span>
+            <span class="form-radio">
+              <input type="radio" name="radio" id="" />
+              Radio 2
+            </span>
+            <span class="form-radio disabled">
+              <input type="radio" name="radio" id="" />
+              Radio 2
+            </span>
+          </div>
+          <pre class="html rounded mb-5">
+            {`<span class="form-radio"><input type="radio" name="" id=""> Radio</span>`}
+          </pre>
+          <h3>Textarea</h3>
+          <div class="form-group">
+            <textarea
+              name="textarea"
+              id=""
+              cols="30"
+              rows="10"
+              class="form-textarea"
+              placeholder="form-textarea"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+              nobis explicabo neque obcaecati, eum mollitia delectus laboriosam
+              sed incidunt, eius dolore voluptatem cum. Velit id corporis
+              eligendi ipsam cumque commodi?
+            </textarea>
+          </div>
+          <pre class="html rounded mb-5">
+            {`<textarea name="" id="" cols="30" rows="10" class="form-textarea"placeholder="form-textarea"></textarea>`}
+          </pre>
+          <div class="form-group">
+            <input
+              type="submit"
+              class="btn btn-primary mr-1 mb-1"
+              value="Submit"
+            />
+            <input type="reset" class="btn btn-secondary" value="Reset" />
+          </div>
+          <pre class="html rounded mb-5">
+            {`<div class="form-group">
+  <input type="submit" class="btn btn-primary mr-1" value="Submit">
+  <input type="reset" class="btn btn-secondary" value="Reset">
+</div>
+`}
+          </pre>
+          <h2>Form validate</h2>
+          Validate will trigger when input and page loaded. <br />
+          You need custom Javascript function to add valid and invalid class to
+          input. <br />
+          <div class="form-group">
+            <label for="" class="form-item-label">
+              Correct message is "Hello"
+            </label>
+            <input
+              type="text"
+              class="form-item"
+              placeholder="Type something"
+              onInput={testValid}
+            />
+            <small class="form-item-invalid-message">Nah not that!</small>
+            <small class="form-item-valid-message">Yo you're cool!</small>
+          </div>
+          <h4>HTML</h4>
+          <pre class="html rounded">
+            {`<div class="form-group">
+  <label for="" class="form-item-label">Correct message is "Hello"</label>
+  <input type="text" class="form-item" placeholder="Type something" oninput="testValid(event)">
+  <small class="form-item-invalid-message">Nah not that!</small>
+  <small class="form-item-valid-message">Yo you're cool!</small>
+</div>
+`}
+          </pre>
+          <h4>Javascript sample</h4>
+          <pre class="javascript rounded">
+            {`//Don't forget to  clear invalid/valid
+function testValid(ev /* event */ ){
+  if (ev.target.value == "Hello") {
+    ev.target.classList.remove('invalid')
+    ev.target.classList.add('valid')
+  } else {
+    ev.target.classList.remove('valid')
+    ev.target.classList.add('invalid')
+  }
+}
+`}
+          </pre>
+        </form>
+      </div>
+    </div>
+  ),
+  navbar: () => (
+    <div class="content">
+      <h2 id="navbar">Navbar</h2>
+      <div class="container">
+        <nav class="navbar bg-primary navbar-dark">
+          <a href="#" class="navbar-brand">
+            Navbar
+          </a>
+          <button class="navbar-toggler" data-target="#navbar-col">
+            &plus;
+          </button>
+          <div class="navbar-collapse" id="navbar-col1">
+            <ul>
+              <li>
+                <a href="#" class="navbar-link active">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#" class="navbar-link">
+                  Link1
+                </a>
+              </li>
+              <li>
+                <a href="#" class="navbar-link">
+                  Link2
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="container">
+        <nav class="navbar  navbar-light">
+          <a href="#" class="navbar-brand">
+            Navbar
+          </a>
+          <button class="navbar-toggler" data-target="#navbar-col2">
+            &plus;
+          </button>
+          <div class="navbar-collapse" id="navbar-col2">
+            <ul>
+              <li>
+                <a class="navbar-link active">Home</a>
+              </li>
+              <li>
+                <a class="navbar-link">Link1</a>
+              </li>
+              <li>
+                <a class="navbar-link">Link2</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="container">
+        <pre class="html rounded mb-5">
+          {`<nav class="navbar  navbar-light">
+  <a href="#" class="navbar-brand">Navbar</a>
+  <button class="navbar-toggler" data-target="#navbar-col">></button>
+  <div class="navbar-collapse" id="navbar-col">
+    <ul>
+      <li><a href="#" class="navbar-link active">Home</a></li>
+      <li><a href="#" class="navbar-link">Link1</a></li>
+      <li><a href="#" class="navbar-link">Link2</a></li>
+    </ul>
+  </div>
+</nav>
+`}
+        </pre>
+      </div>
+    </div>
+  ),
+  modal: () => (
+    <div class="content">
+      <h2 id="modal">Modal</h2>
+      <p>
+        Modal is available 3 size modal-sm, modal, modal-lg. <br />
+        Modal has 3 animation fade bonce and slide. <br />
+        Modal with static will not close when click outside modal or press ESC{" "}
+        <br />
+        Modal available with tl tr bl br for position.
+      </p>
+      <h3>Trigger</h3>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#modelId"
+      >
+        Launch
+      </button>
+      <pre class="html rounded">
+        {`<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">Launch</button>`}
+      </pre>
+      <h3>Body</h3>
+      <pre class="html rounded">
+        {`<div class="modal slide" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Modal title</div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <div class="modal-body">
+          Body
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>`}
+      </pre>
+      <div
+        class="modal bonce static"
+        id="modelId"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modelTitleId"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="modal-title">Modal title</div>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati maxime corporis est dolorem laudantium voluptatum
+                dicta non earum sint beatae et aut dolores molestias neque vel,
+                eius numquam explicabo odit!
+              </p>
+              <form action="" class="form">
+                <div class="form-group">
+                  <label for="" class="form-item-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name=""
+                    placeholder="Email"
+                    id=""
+                    class="form-item"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="" class="form-item-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    name=""
+                    placeholder="Password"
+                    id=""
+                    class="form-item"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ),
+  popup: () => (
+    <div class="content">
+      <h2 id="popup">Popup</h2>
+      <p>Add "stack" to class popup will not close other popup.</p>
+      <div class="row">
+        <div class="m-1">
+          <button
+            class="btn btn-primary"
+            data-toggle="popup"
+            data-target="#popup1"
+          >
+            Default
+          </button>
+          <div class="popup point" id="popup1">
+            <p>Popup Default</p>
+          </div>
+        </div>
+        <div class="m-1">
+          <button
+            class="btn btn-primary"
+            data-toggle="popup"
+            data-target="#popup2"
+          >
+            Dash right
+          </button>
+          <div class="popup dash-right point" id="popup2">
+            <p>Popup dash right</p>
+          </div>
+        </div>
+      </div>
+      <pre class="html rounded">
+        {`<button class="btn btn-primary" data-toggle="popup" data-target="#popup1">Popup</button>
+<div class="popup point-top" id="popup1"></div>`}
+      </pre>
+    </div>
+  ),
+  dropdown: () => (
+    <div class="content">
+      <h2 id="dropdown">Dropdowns</h2>
+      <p>add dropdown-link class to child will automatically close popup</p>
+      <div class="m-1">
+        <button
+          class="btn btn-primary"
+          data-toggle="dropdown"
+          data-target="#dropdown1"
+        >
+          Toggle
+        </button>
+        <div class="dropdown" id="dropdown1">
+          <ul>
+            <li>
+              <a class="dropdown-link">
+                <div>dropdown-link 1</div>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-link">
+                <div>dropdown-link 2</div>
+              </a>
+            </li>
+            <li>
+              <a>
+                <div>{`<a> tag Non dropdown-link`}</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <pre class="html rounded">
+        {`<button class="btn btn-primary" data-toggle="dropdown" data-target="#dropdown1">Toggle</button>
+<div class="dropdown" id="dropdown1">
+  <ul>
+    <li><a href="#" class="dropdown-link"><div>Item 1</div></a></li>
+    <li><a href="#" class="dropdown-link"><div>Item 2</div></a></li>
+    <li><a href="#"><div>Item 3</div></a></li>
+  </ul>
+</div>
+`}
+      </pre>
+    </div>
+  ),
+  collapse: () => (
+    <div class="content">
+      <h2 id="collapse">Collapes</h2>
+      <a data-toggle="collapse" data-target="#collapse">
+        Open
+      </a>
+      <div class="collapse" id="collapse">
+        <p style="max-width: 300px;">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quod
+          magnam soluta et blanditiis doloribus. Facilis, libero repellendus
+          reiciendis ab perferendis expedita cumque quod temporibus accusamus
+          ipsam. Corporis, iusto nostrum!
+        </p>
+      </div>
+      <pre class="html rounded">
+        {`<a data-toggle="collapse" data-target="#collapse">Open</a>
+<div class="collapse" id="collapse"></div>
+`}
+      </pre>
+    </div>
+  ),
+  customize: () => (
+    <div class="content">
+      <h2 id="customize">Customizing</h2>
+      <p>
+        Use scss for customizing by import minBootstrap.scss then you can
+        overide some of variables and class style.
+      </p>
+      <h2>Basic Variables</h2>
+      <table class="container-fulid shadow-sm variables-table">
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Unit</th>
+        </tr>
+        <tr>
+          <td class="text-center">$spacer</td>
+          <td>Default spacer amount</td>
+          <td class="text-center">rem</td>
+        </tr>
+        <tr>
+          <td class="text-center">$rounded</td>
+          <td>Default border rounded amount</td>
+          <td class="text-center">rem</td>
+        </tr>
+        <tr>
+          <td class="text-center">$radius</td>
+          <td>Default border radius</td>
+          <td class="text-center">em</td>
+        </tr>
+        <tr>
+          <td class="text-center">$font-size</td>
+          <td>Default font-size affect on many element</td>
+          <td class="text-center">em</td>
+        </tr>
+        <tr>
+          <td class="text-center">$font-family</td>
+          <td>Default web font-family</td>
+          <td class="text-center">Font family</td>
+        </tr>
+      </table>
+    </div>
+  ),
+  bug: () => (
+    <div class="content">
+      <h2 id="bug">Bugs</h2>
+      <ul>
+        <li>
+          Report bugs{" "}
+          <a href="https://github.com/pwnrrk/minbootstrap/issues">here</a>
+        </li>
+      </ul>
     </div>
   )
 };
